@@ -1,0 +1,69 @@
+//Вложенность
+.menu {
+	background: #fff;
+	color: #292929;
+	display: flex;
+	&__list {
+		display: flex;
+	}
+	&__item {
+		width: 20%;
+		margin-right: 10px;
+		&:last-child {
+			margin-right: 0;
+		}
+		&:hover {
+			color: red;
+		}
+		&--dark {
+			background: rgb(148, 45, 45);
+		}
+	}
+	&--column {
+		flex-direction: column;
+	}
+}
+
+//Функции
+@function rem($px) {
+	@return $px / 16px + 0rem;
+}
+
+//Миксины
+@mixin tablets {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+//Миксины, как применять
+@include tablets {
+	.menu {
+		display: none;
+	}
+}
+
+//Переменные
+$siteWidth: 100%;
+
+//Переменные, как применять
+.container {
+	max-width: $siteWidth;
+}
+
+
+.menu{
+    display: flex;
+    &__list{
+        display: flex;
+    }
+    &__item{
+        color: #000;
+        &--main{
+            color: #fff;
+        }
+        .link{
+            border: #292929;
+        }
+    }
+}
